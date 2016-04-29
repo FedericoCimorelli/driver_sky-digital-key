@@ -1,0 +1,61 @@
+================================================================================
+   
+    AVerMedia A867 Driver Release Notes v1.0.28
+
+================================================================================
+
+0. License
+
+    This driver is released under the GNU GENERAL PUBLIC LICENSE Version 2.
+    Please read "LICENSE" file for detailed information.
+
+1. Compile and install the driver
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    NOTE: It doesn't work with Linux 2.6.21 and earlier kernel version
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	$ tar xjf a867_drv_[version].tar.bz2
+	$ cd a867_drv_[version]
+	$ ls /lib/modules/`uname -r`/source 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!	Make sure it links to kernel header or kernel tree before moving to   !!
+!!	the next step. It often points to /usr/src/xxxx                       !!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	$ make
+	$ sudo make install
+	
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!	Check with the following command to make sure the driver is loaded    !!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	$ lsmod | grep a867
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!	If there is anything wrong, try to                                    !!
+!!		a. shutdown the system                                        !!
+!!		b. remove the device from system if it was present            !!
+!!		c. boot the system                                            !!
+!!		d. plug in the device                                         !!
+!!		e. check with the above command again                         !!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		
+2. DTV applications
+
+	a. Kaffeine (http://kaffeine.kde.org)
+		The driver is tested against Kaffeine under Ubuntu 9.10.
+		We installed the application with the following command.
+
+		$ sudo apt-get install kaffeine xine-ui
+
+	b. MPlayer (http://www.mplayerhq.hu)
+		The driver is also tested against MPlayer under the same
+		system but it requires a prepared channel configuration 
+		(channels.conf) of your location. Please refer to
+		http://www.linuxtv.org/wiki/index.php/Scan for more details.
+		To install MPlayer under Ubuntu, you can do with
+
+		$ sudo apt-get install mplaye
+
+3. Change Log
+-------------------
+v1.0.28	2010/11/10
+-------------------
+- kernel v2.6.35 compatible 
+- Add model 0x3867
